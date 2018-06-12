@@ -123,17 +123,31 @@ $ git clone https://github.com/tensorflow/tfjs-converter.git
 
 ### 2) Knowledge Prerequisites
 
-**Basic Linear Algebra**
+I will go through some basic concepts of machine learning, Convolutional Neural Networks(CNN) and core Tensorflow concepts before we coding.
 
-**Basics of Convolutional Neural Networks**
+**Basics of Machine Learning and Deep Learning**
+
+So what is [Machine Learning](https://www.digitalocean.com/community/tutorials/an-introduction-to-machine-learning)?
+
+Even if you do not completely understand all of that it is okay. I will explain it in a bit more detail in person.
+
+If you seem to get what is machine learning, how about get a deeper understanding of what deep learning is [here](https://machinelearningmastery.com/what-is-deep-learning/)
+
+
+**Basics of CNN**
+Convolutional Neural Networks are very similar to ordinary Neural Networks: they are made up of neurons that have learnable weights and biases. Each neuron receives some inputs, performs a dot product and optionally follows it with a non-linearity.They have a loss function (e.g. SVM/Softmax) on the last (fully-connected) layer to help achieve what we need from the neural network.
+
+tl;dr its a massive fucntion that takes an image as input and outputs how likely it belongs to a particular pretrained class.
+
+Check out this awesome [link](http://cs231n.github.io/convolutional-networks/) to a Stanford University course on CNNs.
 
 **Mobilenet**
 
-
+MobileNets are based on a streamlined architecture that uses depth-wise separable convolutions to build light weight deep neural networks. If you did not understand a single word in the previous sentence, it is perfectly fine. Just read this [paper](https://arxiv.org/abs/1704.04861).
 
 ## Contributing
 
-PRs are always welcome. 
+Found more interesting resources to share? Make a PR to this repo and we can all learn.
 
 ## License
 
@@ -142,4 +156,5 @@ This project is licensed under the MIT License
 ## Acknowledgments
 
 * Tensorflow JS
-* Python 
+* Python
+ 
