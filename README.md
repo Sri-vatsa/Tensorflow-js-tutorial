@@ -131,7 +131,7 @@ So what is [Machine Learning](https://www.digitalocean.com/community/tutorials/a
 
 Even if you do not completely understand all of that it is okay. I will explain it in a bit more detail in person.
 
-If you seem to get what is machine learning, how about get a deeper understanding of what deep learning is [here](https://machinelearningmastery.com/what-is-deep-learning/)
+If you seem to get what machine learning is, how about get a deeper understanding of what [deep learning](https://machinelearningmastery.com/what-is-deep-learning/) is?
 
 ***
 
