@@ -151,6 +151,17 @@ MobileNets are based on a streamlined architecture that uses depth-wise separabl
 
 ***
 
+## Useful Links
+
+* [Tensorflow JS github page](https://github.com/tensorflow/tfjs)
+* [Tensorflow JS Tutorials](https://js.tensorflow.org/#getting-started)
+* [Tensorflow Tutorials](https://www.tensorflow.org/tutorials/) (_Python_)
+* [Convolutional Neural Networks Stanford](http://cs231n.github.io/convolutional-networks/)
+* [Machine Learning Basics](https://www.coursera.org/learn/machine-learning) (** _Very Important_ **)
+* [Siraj Raval's Youtube Series](https://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A)
+* [Daniel Shiffman's Youtube Series](https://www.youtube.com/user/shiffman)
+
+
 ## Contributing
 
 Found more interesting resources to share? Make a PR to this repo and we can all learn.
