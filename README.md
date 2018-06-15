@@ -160,6 +160,7 @@ MobileNets are based on a streamlined architecture that uses depth-wise separabl
 * [Machine Learning Basics](https://www.coursera.org/learn/machine-learning) (** _Very Important_ **)
 * [Siraj Raval's Youtube Series](https://www.youtube.com/channel/UCWN3xxRkmTPmbKwht9FuE5A)
 * [Daniel Shiffman's Youtube Series](https://www.youtube.com/user/shiffman)
+* [Google Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course/) (_Python_)
 
 
 ## Contributing
