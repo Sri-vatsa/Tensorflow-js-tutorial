@@ -1,0 +1,128 @@
+<html>
+
+<head>
+    <!-- Import tfjs-->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+
+    <script>
+        ///////////
+        //Tensors//
+        ///////////
+
+        //set up a basic 2 x 3 tensor
+        const shape = [2, 3];
+        const a = tf.tensor([1, 2, 3, 4, 5, 6], shape);
+        //console.log("Tensor A");
+        //a.print();
+
+        //basic tensor with shape inferred
+        const b = tf.tensor([
+            [1.0, 2.0, 3.0],
+            [10.0, 20.0, 30.0]
+        ]);
+        //console.log("Tensor B");
+        //b.print();
+
+        //Yet another way to create a tensor, for better readability 
+        const c = tf.tensor2d([
+            [1.0, 2.0, 3.0],
+            [40.0, 50.0, 60.0]
+        ]);
+        //console.log("Tensor C");
+        //c.print();
+
+        //tensor initialised with zeros
+        const zeros = tf.zeros([3, 5]);
+        //console.log("Zeros Tensor");
+        //zeros.print();
+
+
+
+
+        /////////////
+        //Variables//
+        /////////////
+
+        //Mutable while tensors are not
+        const initialValues = tf.zeros([2, 3]);
+        const changedValues = tf.tensor2d([
+            [1.0, 2.0, 3.0],
+            [40.0, 50.0, 60.0]
+        ]);
+
+        //assign initial values to biases variable
+        const biases = tf.variable(initialValues);
+        //console.log("Variable with initial values:")          
+        //biases.print();
+
+        //reassign changed values to biases variable
+        biases.assign(changedValues);
+        //console.log("Variable with changed values:")  
+        //biases.print()
+
+
+
+
+        //////////////
+        //Operations//
+        //////////////
+
+        const x = tf.tensor2d([
+            [1.0, 2.0],
+            [3.0, 4.0]
+        ]);
+        const y = tf.tensor2d([
+            [5.0, 6.0],
+            [7.0, 8.0]
+        ]);
+
+        //mul, sub, add, (binary) || square (Unary)
+        const result = x.add(y);
+        //console.log("Result:");
+        //result.print()
+
+        //chainable api
+        const result = x.add(y).square();
+        //console.log("Chainable API example:")
+        //result.print();
+
+
+
+
+        //////////
+        //models//
+        //////////
+        
+        //EXAMPLE FROM TENSORFLOWJS
+
+        // Define function
+        function predict(input) {
+            // y = a * x ^ 2 + b * x + c
+            return tf.tidy(() => {
+                const x = tf.scalar(input);
+
+                const ax2 = a.mul(x.square());
+                const bx = b.mul(x);
+                const y = ax2.add(bx).add(c);
+
+                return y;
+            });
+        }
+
+        // Define constants: y = 2x^2 + 4x + 8
+        const a = tf.scalar(2);
+        const b = tf.scalar(4);
+        const c = tf.scalar(8);
+
+        // Predict output for input of 2
+        //const result = predict(2);
+        //result.print()
+
+    </script>
+</head>
+
+<body>
+    Tensorflow JS Mission Control
+</body>
+
+</html>
