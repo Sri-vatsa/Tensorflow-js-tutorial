@@ -11,12 +11,12 @@
 
         //set up a basic 2 x 3 tensor
         const shape = [2, 3];
-        const a = tf.tensor([1, 2, 3, 4, 5, 6], shape);
+        //const a = tf.tensor([1, 2, 3, 4, 5, 6], shape);
         //console.log("Tensor A");
         //a.print();
 
         //basic tensor with shape inferred
-        const b = tf.tensor([
+        /*const b = tf.tensor([
             [1.0, 2.0, 3.0],
             [10.0, 20.0, 30.0]
         ]);
@@ -35,8 +35,8 @@
         const zeros = tf.zeros([3, 5]);
         //console.log("Zeros Tensor");
         //zeros.print();
-
-
+    */
+        
 
 
         /////////////
@@ -77,12 +77,12 @@
         ]);
 
         //mul, sub, add, (binary) || square (Unary)
-        const result = x.add(y);
+        //const result = x.square();
         //console.log("Result:");
         //result.print()
 
         //chainable api
-        const result = x.add(y).square();
+        //const result = x.add(y).square();
         //console.log("Chainable API example:")
         //result.print();
 
@@ -115,8 +115,8 @@
         const c = tf.scalar(8);
 
         // Predict output for input of 2
-        //const result = predict(2);
-        //result.print()
+        const result = predict(2);
+        result.print()
 
     </script>
 </head>

@@ -183,9 +183,71 @@ model = tf.sequential({
     ]
   });
 
+// Creates the optimizers which drives training of the model.
+  const optimizer = tf.train.adam(ui.getLearningRate());
+  // We use categoricalCrossentropy which is the loss function we use for
+  // categorical classification which measures the error between our predicted
+  // probability distribution over classes (probability that an input is of each
+  // class), versus the label (100% probability in the true class)>
+  model.compile({optimizer: optimizer, loss: 'categoricalCrossentropy'});
+
+  // We parameterize batch size as a fraction of the entire dataset because the
+  // number of examples that are collected depends on how many examples the user
+  // collects. This allows us to have a flexible batch size.
+  const batchSize =
+      Math.floor(controllerDataset.xs.shape[0] * ui.getBatchSizeFraction());
+  if (!(batchSize > 0)) {
+    throw new Error(
+        `Batch size is 0 or NaN. Please choose a non-zero fraction.`);
+  }
+
+  // Train the model! Model.fit() will shuffle xs & ys so we don't have to.
+  model.fit(controllerDataset.xs, controllerDataset.ys, {
+    batchSize,
+    epochs: ui.getEpochs(),
+    callbacks: {
+      onBatchEnd: async (batch, logs) => {
+        ui.trainStatus('Loss: ' + logs.loss.toFixed(5));
+        await tf.nextFrame();
+      }
+    }
+  });
 
 ```
 
+Prediction:
+
+```javascript
+async function predict() {
+  ui.isPredicting();
+  while (isPredicting) {
+    const predictedClass = tf.tidy(() => {
+      // Capture the frame from the webcam.
+      const img = webcam.capture();
+
+       // Make a prediction through mobilenet, getting the internal activation of
+      // the mobilenet model.
+      const activation = mobilenet.predict(img);
+
+      // Make a prediction through our newly-trained model using the activation
+      // from mobilenet as input.
+      const predictions = model.predict(activation);
+
+      // Returns the index with the maximum probability. This number corresponds
+      // to the class the model thinks is the most probable given the input.
+      return predictions.as1D().argMax();
+    });
+
+    const classId = (await predictedClass.data())[0];
+    predictedClass.dispose();
+
+    ui.predictClass(classId);
+    await tf.nextFrame();
+  }
+  ui.donePredicting();
+}
+
+```
 
 ---
 
